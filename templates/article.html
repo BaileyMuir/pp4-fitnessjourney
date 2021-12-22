@@ -26,13 +26,11 @@
                                 </div>
                                 <a href="#" class="post-link">
                                     <h2 class="card-title">{{ blog.title }}</h2>
-                                    <p class="card-text">{{ blog.article_summery }}</p>
+                                    <p class="card-text">{{ blog.article_exert }}</p>
                                 </a>
                                 <hr/>
                                 <p class="card-text text-muted h6">{{ blog.article_created_on }} <i class="far fa-thumbs-up"></i>
-                                    {{ blog.number_of_likes }}</p>
-                                    <p class="card-text text-muted h6">{{ blog.article_created_on }} <i class="far fa-thumbs-down"></i>
-                                        {{ blog.number_of_dislikes }}</p>
+                                    {{ blog.number_of_likes }} <i class="far fa-thumbs-down"></i> {{ blog.number_of_dislikes }}</p>
                             </div>
                         </div>
                     </div>

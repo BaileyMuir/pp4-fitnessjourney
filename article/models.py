@@ -5,12 +5,14 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Posted"))
 
 # had to make minor naming changes to fix errors to do with naming
+
 class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="article_posts")
+    article_exert = models.TextField(blank=True)
     updated_on = models.TimeField(auto_now=True)
-    article_summery = models.TextField()
+    article_content = models.TextField()
     article_image = CloudinaryField('image', default='placeholder')
     article_created_on = models.TimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
