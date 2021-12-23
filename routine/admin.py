@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Workouts, WorkoutsComment
+from .models import Workout, WorkoutsComment
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 
 
-@admin.register(Workouts)
-class WorkoutsAdmin(SummernoteModelAdmin):
+@admin.register(Workout)
+class WorkoutAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'slug', 'status', 'workouts_created_on')
     search_fields = ['title', 'workouts_description']

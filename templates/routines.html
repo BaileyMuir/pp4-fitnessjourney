@@ -9,27 +9,27 @@
         <div class="col-12 mt-3 left">
             <div class="row">
 
-                {% for workouts in workoutslist %}
+                {% for workout in workoutslist %}
                     <div class="col-md-4 mt-3 left">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
-                                    {% if "placeholder" in Workouts.workouts_image.url %}
+                                    {% if "placeholder" in Workout.workouts_image.url %}
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg">
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ workouts.workouts_image.url }}">
+                                    <img class="card-img-top" src="{{ workout.workouts_image.url }}">
                                     {% endif %}
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ Workouts.author }}</p>
+                                        <p class="author">Author: {{ Workout.author }}</p>
                                     </div>
                                 </div>
-                                <a href="{% url 'post_detail' blog.slug %}" class="post-link">
-                                    <h2 class="card-title">{{ workouts.title }}</h2>
-                                    <p class="card-text">{{ workouts.workouts_description }}</p>
+                                <a href="{% url 'post_detail' workout.slug %}" class="post-link">
+                                    <h2 class="card-title">{{ workout.title }}</h2>
+                                    <p class="card-text">{{ workout.workouts_description }}</p>
                                 </a>
                                 <hr/>
-                                <p class="card-text text-muted h6">{{ workouts.workouts_created_on }}
+                                <p class="card-text text-muted h6">{{ workout.workouts_created_on }}
                             </div>
                         </div>
                     </div>
