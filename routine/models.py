@@ -56,8 +56,8 @@ class Workouts(models.Model):
     sets8 = models.CharField(max_length=10)
     rest8 = models.CharField(max_length=10)
     status = models.IntegerField(choices=STATUS, default=0)
-    workouts_likes = models.ManyToManyField(User, related_name='article_likes', blank=True)
-    workouts_dislikes = models.ManyToManyField(User, related_name='article_dislikes', blank=True)
+    workouts_likes = models.ManyToManyField(User, related_name='Workout_likes', blank=True)
+    workouts_dislikes = models.ManyToManyField(User, related_name='Workout_dislikes', blank=True)
 
     class Meta:
         ordering = ['-workouts_created_on']
