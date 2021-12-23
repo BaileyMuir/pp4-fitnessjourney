@@ -1,43 +1,44 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Workouts Entries Column -->
-        <!-- Workouts Entries Column -->
+        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-
-                {% for workout in workoutslist %}
-                    <div class="col-md-4 mt-3 left">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in Workout.workouts_image.url %}
-                                    <img class="card-img-top"
-                                        src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg">
-                                    {% else %}
-                                    <img class="card-img-top" src="{{ workout.workouts_image.url }}">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author: {{ Workout.author }}</p>
-                                    </div>
+                {% for workout in workout_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in workout.workouts_image.url %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/baileym/image/upload/v1639600986/tqk7qmjukaw7nrh1sio2.webp">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ workout.workouts_image.url }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ workout.author }}</p>
                                 </div>
-                                <a href="{% url 'post_detail' workout.slug %}" class="post-link">
-                                    <h2 class="card-title">{{ workout.title }}</h2>
-                                    <p class="card-text">{{ workout.workouts_description }}</p>
-                                </a>
-                                <hr/>
-                                <p class="card-text text-muted h6">{{ workout.workouts_created_on }}
                             </div>
+                            <a href="" class="post-link">
+                                <h2 class="card-title">{{ workout.title }}</h2>
+                                <p class="card-text">{{ workout.workouts_description }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6">{{ workout.workouts_created_on}} <i class="far fa-heart"></i>
+                                {{ workout.workout_total_likes }}</p>
                         </div>
                     </div>
-                {% if forloop.counter|divisibleby:3 %}
                 </div>
-                <div class="row">
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
                 {% endif %}
                 {% endfor %}
+
             </div>
         </div>
     </div>
@@ -55,5 +56,4 @@
     </nav>
     {% endif %}
 </div>
-
 {%endblock%}

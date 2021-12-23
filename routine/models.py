@@ -26,10 +26,10 @@ class Workout(models.Model):
     def __str__(self):
         return self.title
 
-    def article_total_likes(self):
+    def workout_total_likes(self):
         return self.workouts_likes.count()
 
-    def article_total_dislikes(self):
+    def workout_total_dislikes(self):
         return self.workouts_dislikes.count()
 
 
