@@ -25,7 +25,7 @@ class Workouts(models.Model):
     reps2 = models.CharField(max_length=10)
     sets2 = models.CharField(max_length=10)
     rest2 = models.CharField(max_length=10)
-    exercise1 = models.CharField(max_length=100)
+    exercise3 = models.CharField(max_length=100)
     tempo3 = models.CharField(max_length=10)
     reps3 = models.CharField(max_length=10)
     sets3 = models.CharField(max_length=10)
@@ -70,6 +70,7 @@ class Workouts(models.Model):
 
     def article_total_dislikes(self):
         return self.workouts_dislikes.count()
+
 
 class WorkoutsComment(models.Model):
     workout = models.ForeignKey(Workouts, on_delete=models.CASCADE, related_name='workoutscomments')
