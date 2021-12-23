@@ -3,7 +3,7 @@
 {% block content %}
 
 <div>
-    <img src="{{ home.home_image.url }}" alt="">
+    <img src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg" alt="">
     <h2>Welcome</h1>
 </div>
 <div>
@@ -23,9 +23,9 @@
             <th>Recipies</th>
         </tr>
         <tr>
-            <td>Our article section covers various topics depending on what our users post. It could be a journal about your
-                progress and tips you want to shave with new members, or you could share in house knowledge as a member of
-                the industry about how to enter your career and help guide future generations.</td>
+            <td>Our article section covers various topics depending on what our users post. It could be a journal about
+                your progress and tips you want to shave with new members, or you could share in house knowledge as a
+                member of the industry about how to enter your career and help guide future generations.</td>
     
             <td>Our routines section is where our members can share and receive new exercise plans with each other this way.
                 You can keep your workouts as fresh and fun as possible without the headache, or try something new have a
@@ -37,5 +37,7 @@
         </tr>
     </table>
 </div>
-
+<div>
+    <p>{{  MainPageContent.article_td }}</p>
+</div>
 {%endblock%}
