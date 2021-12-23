@@ -3,8 +3,10 @@ from django.views import generic
 from .models import Workouts
 
 # Create your views here.
-class Workoutssnippet(generic.ListView):
+
+
+class WorkoutsList(generic.ListView):
     model = Workouts
-    queryset = Workouts.objects.filter(status=1).order_by('-created_on')
+    queryset = Workouts.objects.filter(status=1).order_by('-workouts_created_on')
     template_name = 'routines.html'
-    paginate_by = 4
+    paginate_by = 6
