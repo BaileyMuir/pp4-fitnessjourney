@@ -6,6 +6,7 @@ STATUS = ((0, "Draft"), (1, "Posted"))
 
 # had to make minor naming changes to fix errors to do with naming
 
+
 class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=200, unique=True)

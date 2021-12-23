@@ -11,10 +11,10 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
+                {% if "placeholder" in blog.article_image %}
                 <img src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg" width="100%">
                 {% else %}
-                <img src="{{ blog.article_image }}" width="100%">
+                <img src=" {{ blog.article_image.url }} " width="100%">
                 {% endif %}
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text "> {{ blog. | safe }}</p>
+                <p class="card-text "> {{ blog.article_content | safe }}</p>
                 <div class="row">
 
                     <div class="col-1">

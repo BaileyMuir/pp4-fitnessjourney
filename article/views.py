@@ -3,6 +3,7 @@ from django.views import generic, View
 from .models import Blog
 from .forms import ArticleCommentForm
 
+
 class BlogList(generic.ListView):
     model = Blog
     queryset = Blog.objects.filter(status=1).order_by('-article_created_on')
@@ -23,7 +24,7 @@ class PostDetail(View):
             request,
             "post_detail.html",
             {
-                "blog": Blog,
+                "blog": blog,
                 "article_comments": article_comments,
                 "article_Commented": False,
                 "liked": liked,
