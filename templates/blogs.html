@@ -18,13 +18,13 @@
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg">
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ blog.article_image.url }}">
+                                    <img class="card-img-top" src=" {{ blogs.url }}">
                                     {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ blog.author }}</p>
                                     </div>
                                 </div>
-                                <a href="{% url 'post_detail' blog.slug %}" class="post-link">
+                                <a href="{% url '' blog. %}" class="post-link">
                                     <h2 class="card-title">{{ blog.title }}</h2>
                                     <p class="card-text">{{ blog.article_exert }}</p>
                                 </a>
