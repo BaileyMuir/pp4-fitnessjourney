@@ -14,23 +14,23 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
-                                    {% if "placeholder" in blog.featured_image.url %}
+                                    {% if "placeholder" in posts.featured_image.url %}
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg">
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ blogs.url }}">
+                                    <img class="card-img-top" src=" {{ posts.url }}">
                                     {% endif %}
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ blog.author }}</p>
+                                        <p class="author">Author: {{ posts.author }}</p>
                                     </div>
                                 </div>
-                                <a href="{% url '' blog. %}" class="post-link">
-                                    <h2 class="card-title">{{ blog.title }}</h2>
-                                    <p class="card-text">{{ blog.article_exert }}</p>
+                                <a href="{% url 'posts' blog. %}" class="post-link">
+                                    <h2 class="card-title">{{ posts.title }}</h2>
+                                    <p class="card-text">{{ posts.post_content }}</p>
                                 </a>
                                 <hr/>
-                                <p class="card-text text-muted h6">{{ blog.article_created_on }} <i class="far fa-thumbs-up"></i>
-                                    {{ blog.number_of_likes }} <i class="far fa-thumbs-down"></i> {{ blog.number_of_dislikes }}</p>
+                                <p class="card-text text-muted h6">{{ posts.article_created_on }} <i class="far fa-thumbs-up"></i>
+                                    {{ posts.number_of_likes }} <i class="far fa-thumbs-down"></i> {{ posts.number_of_dislikes }}</p>
                             </div>
                         </div>
                     </div>
