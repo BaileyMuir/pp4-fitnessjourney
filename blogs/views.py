@@ -26,6 +26,7 @@ class PostDetail(View):
             {
                 "posts": posts,
                 "postcomments": postscomments,
+                "commented": False,
                 "liked": liked
             },
         )
