@@ -4,7 +4,7 @@ from .models import JournalPost
 
 # Create your views here.
 
-class journalList(generic.ListView):
+class JournalList(generic.ListView):
     model = JournalPost
     queryset = JournalPost.objects.filter(status=1).order_by('-created_on')
     template_name = 'journal.html'

@@ -1,75 +1,60 @@
-<!-- {% extends 'base.html' %} {% block content %}
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ blog.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle"> {{ blog.author }} | {{ blog.article_created_on }} </p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg" width="100%">
-                {% else %}
-                <img src="{{ blog.article_image }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text "> {{ blog.article_content | safe }}</p>
-                <div class="row">
 
-                    <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ blog.article_total_likes }} </strong>
+        <!-- Blog Entries Column -->
+        <!-- article Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+
+                {% for journalpost in journalpost_list%}
+                    <div class="col-md-6">
+                        <div class="mb-6">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in journalpost.journal_featured_image.url %}
+                                    <img class="card-img-top"
+                                        src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ journalpost.journal_featured_image.url }}">
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">Author: {{ journalpost.author }}</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="post-link">
+                                    <h2 class="card-title">{{ journalpost.title }}</h2>
+                                    <p class="card-text">{{ journalpost.journal_excerpt }}</p>
+                                </a>
+                                <hr />
+                                <p class="card-text text-muted h6">{{ journalpost.article_created_on}} <i class="far fa-thumbs-up"></i>
+                                    {{ journalpost.number_of_likes }} <i class="far fa-thumbs-down"></i>
+                                        {{ journalpost.number_of_dislikes }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-1">
-                        <!-- The number of dislikes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ blog.article_total_dislikes }} </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                        {{ total_article_comments }}</strong>
-                        {% endwith %}
-                    </div>
+                {% if forloop.counter|divisibleby:2 %}
                 </div>
-                <h1 class="post-title">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-                {% for BlogComment in article_comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ BlogComment.name}}
-                        <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ BlogComment.created_on}}
-                        </span> wrote:
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{  BlogComment.message | linebreaks }}
-                </div>
-                <!-- Our for loop ends here -->
+                <div class="row">
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For later -->
-            </div>
-        </div>
     </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
-{% endblock content %}  -->
+
+{%endblock%} 
