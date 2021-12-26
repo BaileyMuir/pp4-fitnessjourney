@@ -18,11 +18,11 @@ class JournalDetail(View):
         journalpost = get_object_or_404(queryset, slug=slug)
         journalcomments = journalpost.journalcomments.filter(message_approved=True).order_by('created_on')
         liked = False
-        # if journalpost.journal_likes.filter(id=self.request.user.id).exhists():
-        #     liked = True
-        # disliked = False
-        # if journalpost.journal_dislikes.filter(id=self.request.user.id).exhists():
-        #     disliked = True
+        if journalpost.journal_likes.filter(id=self.request.user.id).exists():
+            liked = True
+        disliked = False
+        if journalpost.journal_dislikes.filter(id=self.request.user.id).exists():
+            disliked = True
 
         return render(
             request,
@@ -30,8 +30,8 @@ class JournalDetail(View):
              {
                 "journalpost": journalpost,
                 "journalcomments": journalcomments,
-                # "liked": liked,
-                # "disliked": disliked,
+                "liked": liked,
+                "disliked": disliked,
                 "Journal_Comment_Form": JournalCommentForm()
              },
         )
