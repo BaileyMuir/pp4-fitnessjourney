@@ -4,4 +4,4 @@ from django import forms
 class JournalCommentForm(forms.ModelForm):
     class Meta:
         model = JournalComment
-        fields = ('body',)
+        fields = ('message_body',)

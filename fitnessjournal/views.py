@@ -17,7 +17,7 @@ class JournalDetail(View):
         queryset = JournalPost.objects.filter(status=1)
         journalpost = get_object_or_404(queryset, slug=slug)
         journalcomments = journalpost.journalcomments.filter(message_approved=True).order_by('created_on')
-        # liked = False
+        liked = False
         # if journalpost.journal_likes.filter(id=self.request.user.id).exhists():
         #     liked = True
         # disliked = False
