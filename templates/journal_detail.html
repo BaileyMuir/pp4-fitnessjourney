@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -78,7 +80,16 @@
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
+                
+                {% if user.is_authenticated %}
+                <h5>comment below:</h5>
+                <p>{{ user.username}} | {{ JournalComment.created_on}}</p>
+                <form action="POST">
+                    {{ Journal_Comment_Form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit">Post.</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
