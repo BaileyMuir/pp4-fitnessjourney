@@ -1,20 +1,16 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Blog
 from .forms import ArticleCommentForm
 
+
 class BlogList(generic.ListView):
     model = Blog
     queryset = Blog.objects.filter(status=1).order_by('-article_created_on')
     template_name = 'article.html'
-    paginate_by = 6 
     paginate_by = 6
 
 class PostDetail(View):
-
     def get(self, request, slug, *args, **kwargs):
         queryset = Blog.objects.filter(status=1)
         blog = get_object_or_404(queryset, slug=slug)

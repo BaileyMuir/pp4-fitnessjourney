@@ -4,7 +4,7 @@
 <html class="h-100">
 
 <head>
-    <title>CodeStar Blog</title>
+    <title>FitnessJourney</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -37,10 +37,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'article' %}">blogs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">#</a>
+                        <a class="nav-link active" href="{% url 'article' %}">Article</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">

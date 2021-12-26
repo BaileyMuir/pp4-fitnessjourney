@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Blog, BlogComment
 from django_summernote.admin import SummernoteModelAdmin
+
+
 @admin.register(Blog)
 class BlogAdmin(SummernoteModelAdmin):
 
@@ -16,5 +18,6 @@ class BCommentAdmin(admin.ModelAdmin):
     list_filter = ('blog_comment_approval', 'created_on')
     search_fields = ('name', 'email', 'message')
     actions = ['blog_approve_comments']
+    
     def blog_approve_comments(self, request, queryset):
         queryset.update(blog_comment_approval=True)

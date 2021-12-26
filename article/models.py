@@ -9,9 +9,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="article_posts")
-    article_exert = models.TextField(blank=True)
+    article_description = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    article_summery = models.TextField()
     article_content = models.TextField()
     article_image = CloudinaryField('image', default='placeholder')
     article_created_on = models.DateTimeField(auto_now_add=True)
@@ -41,6 +40,6 @@ class BlogComment(models.Model):
 
     class Meta:
         ordering = ['-created_on']
-        
+
     def __str__(self):
         return f"Blog_comment {self.name} {self.created_on} {self.message}"
