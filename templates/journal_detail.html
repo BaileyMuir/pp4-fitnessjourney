@@ -80,7 +80,13 @@
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                
+
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    As to keep all members of the community safe your comment is waiting to be reviewed before posting for more information visit the guidelines.
+                </div>
+                {% else %}
+
                 {% if user.is_authenticated %}
                 <h5>comment below:</h5>
                 <p>{{ user.username}} | {{ JournalComment.created_on}}</p>
@@ -89,6 +95,7 @@
                     {% csrf_token %}
                     <button type="submit">Post.</button>
                 </form>
+                {% endif %}
                 {% endif %}
             </div>
         </div>
