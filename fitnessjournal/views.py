@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import JournalPost
+from .forms import JournalCommentForm
 
 # Create your views here.
 
@@ -31,5 +32,6 @@ class JournalDetail(View):
                 "journalcomments": journalcomments,
                 # "liked": liked,
                 # "disliked": disliked,
+                "Journal_Comment_Form": JournalCommentForm()
              },
         )
