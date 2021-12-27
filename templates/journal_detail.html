@@ -89,8 +89,8 @@
 
                 {% if user.is_authenticated %}
                 <h5>comment below:</h5>
-                <p>{{ user.username}} | {{ JournalComment.created_on}}</p>
-                <form action="POST">
+                <p>{{ user.username }}</p>
+                <form action="post">
                     {{ Journal_Comment_Form | crispy }}
                     {% csrf_token %}
                     <button type="submit">Post.</button>

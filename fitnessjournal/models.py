@@ -37,8 +37,7 @@ class JournalPost(models.Model):
 
 
 class JournalComment(models.Model):
-    journalpost = models.ForeignKey(JournalPost, on_delete=models.CASCADE,
-                             related_name="journalcomments")
+    journalpost = models.ForeignKey(JournalPost, on_delete=models.CASCADE, related_name="journalcomments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     message_body = models.TextField()
