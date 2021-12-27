@@ -82,8 +82,10 @@ following e.g. login in their will be a message prompt apear.
 First, I used Wireframe to provide a basic template of my website. This was to put across my ideas to make an efficient and visually appealing layout for my users and provide a hassle-free environment for them to learn in, such as the navigation bar.
 
 # Wireframe design
+![Wireframe](https://github.com/BaileyMuir/pp4-fitnessjourney/blob/main/assets/images/wireframe-pp4.png)
 
-
+# Lucidchart
+![Lucidchart](https://github.com/BaileyMuir/pp4-fitnessjourney/blob/main/assets/images/lucidchart.png)
 
 # Bugs/Fixes
 
@@ -170,6 +172,8 @@ Unsplash.com provided all images.
 - Heroku allowed me to host my website.
 - grammerly for spelling and grammer.
 - bootstrap was used to make styling more simple
+- lucidchart to make flow diagram
+- github projects to hold the issues created.
 
 # testing
 all the testing was done manualy
