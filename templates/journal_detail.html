@@ -6,13 +6,10 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ journalpost.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle"> {{ journalpost.author }} | {{ journalpost.created_on }} </p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in journalpost.journal_featured_image %}
                 <img src="https://res.cloudinary.com/baileym/image/upload/v1638976391/sample.jpg" width="100%">
                 {% else %}
@@ -27,8 +24,6 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The blog content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "> {{ journalpost.journal_content | safe }}</p>
             </div>
         </div>

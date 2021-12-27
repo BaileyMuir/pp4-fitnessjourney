@@ -3,8 +3,6 @@ from django.views import generic, View
 from .models import JournalPost
 from .forms import JournalCommentForm
 
-# Create your views here.
-
 
 class JournalList(generic.ListView):
     model = JournalPost

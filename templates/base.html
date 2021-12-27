@@ -22,8 +22,6 @@
 
 <body class="d-flex flex-column h-100 main-bg">
 
-    <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">fitnessjourney</span></a>
@@ -71,11 +69,9 @@
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
         {% endblock content %}
     </main>
 
-    <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-white">Made by Bailey Muir</p>
         <p class="m-0 text-center text-white">Follow us: 
